@@ -656,21 +656,21 @@ const LandingPage: React.FC = () => {
                 <div
                   data-animate
                   data-index={40}
-                  className={`bg-gradient-to-r from-[#faf8f3] to-[#f0e9dc] p-8 rounded-2xl border-l-4 border-[#8b6f47] shadow-md hover:shadow-lg transition-shadow ${
+                  className={`bg-gradient-to-r from-[#faf8f3] to-[#f0e9dc] p-4 sm:p-6 md:p-8 rounded-2xl border-l-4 border-[#8b6f47] shadow-md hover:shadow-lg transition-shadow overflow-hidden ${
                     visibleElements.has(40) ? "animate-fadeIn" : "opacity-0"
                   }`}
                 >
-                  <h3 className="text-2xl font-bold text-[#8b6f47] mb-6 flex items-center">
+                  <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#8b6f47] mb-4 sm:mb-6 flex items-center">
                     3. Nguồn gốc của tôn giáo
                   </h3>
 
                   {/* Tab Navigation */}
-                  <div className="flex gap-2 mb-6 border-b-2 border-[#e8d5b7]">
+                  <div className="flex flex-col sm:flex-row gap-2 mb-4 sm:mb-6 border-b-2 border-[#e8d5b7] overflow-x-auto">
                     {nguonGocs.map((item, index) => (
                       <button
                         key={index}
                         onClick={() => setActiveNguonGoc(index)}
-                        className={`px-6 py-3 font-semibold rounded-t-lg transition-all ${
+                        className={`px-3 sm:px-4 md:px-6 py-2 sm:py-3 font-semibold rounded-t-lg transition-all text-sm sm:text-base whitespace-nowrap ${
                           activeNguonGoc === index
                             ? "bg-[#8b6f47] text-white shadow-lg"
                             : "bg-white/50 text-[#8b6f47] hover:bg-white hover:shadow"
@@ -682,23 +682,26 @@ const LandingPage: React.FC = () => {
                   </div>
 
                   {/* Tab Content */}
-                  <div className="bg-white p-6 rounded-xl shadow-inner">
-                    <h4 className="text-xl font-bold text-[#8b6f47] mb-4 flex items-center">
+                  <div className="bg-white p-4 sm:p-5 md:p-6 rounded-xl shadow-inner">
+                    <h4 className="text-base sm:text-lg md:text-xl font-bold text-[#8b6f47] mb-3 sm:mb-4 flex items-center flex-wrap">
                       {React.createElement(nguonGocs[activeNguonGoc].Icon, {
-                        className: "w-7 h-7 mr-2 text-[#8b6f47]",
+                        className:
+                          "w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 mr-2 text-[#8b6f47] flex-shrink-0",
                       })}
-                      <span>{nguonGocs[activeNguonGoc].title}</span>
+                      <span className="break-words">
+                        {nguonGocs[activeNguonGoc].title}
+                      </span>
                     </h4>
-                    <ul className="space-y-3">
+                    <ul className="space-y-2 sm:space-y-3">
                       {nguonGocs[activeNguonGoc].details.map((detail, idx) => (
                         <li
                           key={idx}
-                          className="flex items-start text-gray-700 leading-relaxed"
+                          className="flex items-start text-gray-700 leading-relaxed text-sm sm:text-base"
                         >
-                          <span className="text-[#8b6f47] mr-2 font-bold">
+                          <span className="text-[#8b6f47] mr-2 font-bold flex-shrink-0">
                             •
                           </span>
-                          <span>{detail}</span>
+                          <span className="break-words">{detail}</span>
                         </li>
                       ))}
                     </ul>
