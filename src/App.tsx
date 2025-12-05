@@ -9,15 +9,26 @@ function App() {
   );
   const [scrolled, setScrolled] = useState(false);
 
-  // Disable DevTools
+  // Disable DevTools (only on desktop, not mobile)
   useEffect(() => {
-    // Disable right-click
+    // Check if device is mobile
+    const isMobile =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+        navigator.userAgent
+      );
+
+    // Skip all protections on mobile devices
+    if (isMobile) {
+      return;
+    }
+
+    // Disable right-click (desktop only)
     const handleContextMenu = (e: MouseEvent) => {
       e.preventDefault();
       return false;
     };
 
-    // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U
+    // Disable F12, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+U (desktop only)
     const handleKeyDown = (e: KeyboardEvent) => {
       // F12
       if (e.key === "F12") {
@@ -46,7 +57,7 @@ function App() {
       }
     };
 
-    // Detect DevTools
+    // Detect DevTools (desktop only)
     const detectDevTools = () => {
       const threshold = 160;
       const widthThreshold = window.outerWidth - window.innerWidth > threshold;

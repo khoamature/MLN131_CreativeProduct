@@ -598,21 +598,21 @@ const LandingPage: React.FC = () => {
                     </div>
 
                     {/* Connecting Line */}
-                    <div className="w-1 h-8 bg-[#a0826d]"></div>
+                    <div className="w-1 h-8 bg-[#a0826d] hidden lg:block"></div>
 
                     {/* Horizontal Branch Line */}
                     <div className="relative w-full">
                       {/* Main horizontal line */}
-                      <div className="absolute top-0 left-0 right-0 h-1 bg-[#a0826d]"></div>
+                      <div className="absolute top-0 left-0 right-0 h-1 bg-[#a0826d] hidden lg:block"></div>
 
                       {/* 5 Vertical connectors */}
-                      <div className="grid grid-cols-5 gap-3 relative">
+                      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 sm:gap-3 relative">
                         {cauTrucTonGiao.map((item, index) => (
                           <div
                             key={index}
                             className="flex flex-col items-center"
                           >
-                            <div className="w-1 h-8 bg-[#a0826d]"></div>
+                            <div className="w-1 h-8 bg-[#a0826d] hidden lg:block"></div>
                             <div
                               data-animate
                               data-index={33 + index}
@@ -623,7 +623,7 @@ const LandingPage: React.FC = () => {
                               }`}
                             >
                               {/* Card Image */}
-                              <div className="relative h-48 overflow-hidden">
+                              <div className="relative h-32 sm:h-40 md:h-48 overflow-hidden">
                                 <img
                                   src={item.image}
                                   alt={item.title}
@@ -636,11 +636,11 @@ const LandingPage: React.FC = () => {
                               </div>
 
                               {/* Card Content */}
-                              <div className="p-6 flex-grow flex flex-col">
-                                <p className="font-bold text-[#8b6f47] mb-2 text-lg">
+                              <div className="p-3 sm:p-4 md:p-6 flex-grow flex flex-col">
+                                <p className="font-bold text-[#8b6f47] mb-2 text-base sm:text-lg">
                                   {item.title}
                                 </p>
-                                <p className="text-sm text-gray-600 flex-grow">
+                                <p className="text-xs sm:text-sm text-gray-600 flex-grow">
                                   {item.description}
                                 </p>
                               </div>
@@ -1017,7 +1017,7 @@ const LandingPage: React.FC = () => {
               {/* Grid Layout - 3 cards first row, 2 cards centered second row */}
               <div className="space-y-6">
                 {/* First row: 3 cards */}
-                <div className="grid md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 sm:gap-6">
                   {dacDiemVN.slice(0, 3).map((item, index) => (
                     <div
                       key={index}
@@ -1056,7 +1056,7 @@ const LandingPage: React.FC = () => {
                 </div>
 
                 {/* Second row: 2 cards centered */}
-                <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
                   {dacDiemVN.slice(3, 5).map((item, index) => (
                     <div
                       key={index + 3}
@@ -1069,7 +1069,7 @@ const LandingPage: React.FC = () => {
                       }`}
                     >
                       {/* Card Image */}
-                      <div className="relative h-48 overflow-hidden">
+                      <div className="relative h-40 sm:h-48 overflow-hidden">
                         <img
                           src={item.image}
                           alt={item.title}
@@ -1082,11 +1082,11 @@ const LandingPage: React.FC = () => {
                       </div>
 
                       {/* Card Content */}
-                      <div className="p-8">
-                        <h4 className="text-xl font-bold text-[#8b6f47] mb-3">
+                      <div className="p-4 sm:p-6 md:p-8">
+                        <h4 className="text-lg sm:text-xl font-bold text-[#8b6f47] mb-2 sm:mb-3">
                           {item.title}
                         </h4>
-                        <p className="text-gray-600 leading-relaxed">
+                        <p className="text-sm sm:text-base text-gray-600 leading-relaxed">
                           {item.description}
                         </p>
                       </div>
