@@ -187,7 +187,7 @@ const BoardGame: React.FC = () => {
         {/* Main Content */}
         <div className="flex flex-col lg:flex-row gap-3 lg:gap-4">
           {/* Left & Center: Map and Rules in same card */}
-          <div className="flex-1 bg-white/90 backdrop-blur rounded-2xl lg:rounded-3xl shadow-2xl p-2 lg:p-4 border border-[#d4c4b0] flex flex-col sm:flex-row gap-2 lg:gap-4">
+          <div className="flex-1 bg-white/90 backdrop-blur rounded-2xl lg:rounded-3xl shadow-2xl p-2 lg:p-4 border border-[#d4c4b0] flex flex-col gap-2 lg:gap-4 overflow-hidden">
             {/* Map Section */}
             <div className="flex-1 min-h-[300px] sm:min-h-[400px] lg:min-h-[500px]">
               <div className="relative h-full flex items-center justify-center">
@@ -201,7 +201,7 @@ const BoardGame: React.FC = () => {
 
                   {/* Hoàng Sa - Đảo phía trên */}
                   <div
-                    className="absolute group"
+                    className="absolute group hidden md:block"
                     style={{
                       top: "33%",
                       right: "6%",
@@ -209,14 +209,14 @@ const BoardGame: React.FC = () => {
                     onMouseEnter={() => setShowFlagVideo(true)}
                     onMouseLeave={() => setShowFlagVideo(false)}
                   >
-                    <p className="text-xl font-bold text-white hover:cursor-pointer">
+                    <p className="text-xs md:text-sm lg:text-base font-bold text-white hover:cursor-pointer">
                       Hoàng Sa
                     </p>
                   </div>
 
                   {/* Trường Sa - Đảo phía dưới */}
                   <div
-                    className="absolute group"
+                    className="absolute group hidden md:block"
                     style={{
                       bottom: "25%",
                       right: "5%",
@@ -224,7 +224,7 @@ const BoardGame: React.FC = () => {
                     onMouseEnter={() => setShowFlagVideo(true)}
                     onMouseLeave={() => setShowFlagVideo(false)}
                   >
-                    <p className="text-xl font-bold text-white hover:cursor-pointer">
+                    <p className="text-xs md:text-sm lg:text-base font-bold text-white hover:cursor-pointer">
                       Trường Sa
                     </p>
                   </div>
@@ -320,8 +320,8 @@ const BoardGame: React.FC = () => {
             </div>
 
             {/* Game Rules */}
-            <div className="w-full sm:w-72 lg:w-80 overflow-y-auto max-h-[300px] sm:max-h-full">
-              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-4 border-2 border-amber-200 shadow-md">
+            <div className="w-full lg:w-80 overflow-y-auto max-h-[400px] lg:max-h-full">
+              <div className="bg-gradient-to-br from-amber-50 to-yellow-50 rounded-2xl p-3 lg:p-4 border-2 border-amber-200 shadow-md">
                 <h3 className="text-lg font-bold text-amber-800 mb-3 flex items-center gap-2">
                   📜 Luật Chơi
                 </h3>
